@@ -22,10 +22,12 @@ export const Chat = ({ room }) => {
         messagesArray.push({ ...doc.data(), id: doc.id });
       });
       setMessages(messagesArray);
-    });
+  });
 
-    return () => unsubscribe(); // Cleanup the listener on component unmount
-  }, [room]);
+  return () => unsubscribe(); // Cleanup the listener on component unmount
+  
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+}, [room]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
